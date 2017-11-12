@@ -28,6 +28,7 @@ router.get('/', (req, res) => {
 router.get('/login', (req, res) => {
   res.render('login', {
     title: 'Fellow Status - Login',
+    url: process.env.site_url,
   });
 });
 

@@ -32,8 +32,8 @@ function render(auth, details) {
   sheets.spreadsheets.values.get(
     {
       auth,
-      spreadsheetId: '1lGOhWZN3ENtDiKqmywayhUxCh7SGUJSi0Z47CP1nOEY',
-      range: 'Report (Final) - Individual Che!A2:X',
+      spreadsheetId: process.env.sheet_id,
+      range: 'Report (Final) - Individual Checkins!A2:X',
     },
     (err, response) => {
       if (err) {
