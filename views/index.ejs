@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1>
+    <%= title %>
+  </h1>
+  <p>Welcome to
+    <%= title %>
+  </p>
+
+  <p>=====================</p>
+  <h2>Current user:</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Fellow/STC</th>
+        <th>Client</th>
+        <th>Staff</th>
+        <th>Rating</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% filtered.forEach(function(row) { %>
+        <tr>
+          <td>
+            <%= row.date %>
+          </td>
+          <td>
+            <%= row.fellow %>
+          </td>
+          <td>
+            <%= row.client %>
+          </td>
+          <td>
+            <%= row.staff %>
+          </td>
+          <td>
+            <%= row.ratings %>
+          </td>
+        </tr>
+        <% }); %>
+    </tbody>
+  </table>
+
+  <ul>
+
+  </ul>
+</body>
+<script>
+  window.history.replaceState(null, null, window.location.pathname);
+</script>
+
+</html>
