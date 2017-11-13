@@ -5,15 +5,21 @@
     <title>
         <%= title %>
     </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 
-<body>
-    <div class="login-page">
-        <div class="form">
-            <div class="login-form">
-                <a class="login-button" href="https://api-prod.andela.com/login?redirect_url=<%= url %>">login with google</a>
+<body class="login-page">
+    <div class="login-container">
+        <div class="login-box">
+            <div class="box-header">
+                <h2>Welcome</h2>
             </div>
+            <h3>Sign in with your Andela mail.</h3>
+            <a href="https://api-prod.andela.com/login?redirect_url=<%= url %>" class="login-btn">LOG IN</a>
+            <br/>
         </div>
     </div>
 </body>

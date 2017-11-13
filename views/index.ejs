@@ -5,58 +5,98 @@
   <title>
     <%= title %>
   </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+    crossorigin="anonymous">
   <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 
-<body>
-  <h1>
-    <%= title %>
-  </h1>
-  <p>Welcome to
-    <%= title %>
-  </p>
+<body class="detail-page">
 
-  <p>=====================</p>
-  <h2>Current user:</h2>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Date</th>
-        <th>Fellow/STC</th>
-        <th>Client</th>
-        <th>Staff</th>
-        <th>Rating</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% filtered.forEach(function(row) { %>
-        <tr>
-          <td>
-            <%= row.date %>
-          </td>
-          <td>
-            <%= row.fellow %>
-          </td>
-          <td>
-            <%= row.client %>
-          </td>
-          <td>
-            <%= row.staff %>
-          </td>
-          <td>
-            <%= row.ratings %>
-          </td>
-        </tr>
-        <% }); %>
-    </tbody>
-  </table>
+  <div class="container">
+    <div class="text-center profile-div">
+      <img class="profile-pic" src="<%= picture.substring(0, picture.length - 2) %>150" alt="Profile Picture">
+      <p>Details for:
+        <%= fullName %>
+      </p>
+    </div>
 
-  <ul>
+    <% if (filtered.length > 0) { %>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Fellow/STC</th>
+            <th scope="col">Client</th>
+            <th scope="col">Staff</th>
+            <th scope="col" data-toggle="tooltip" data-placement="top" title="Quality">QLT</th>
+            <th scope="col" data-toggle="tooltip" data-placement="top" title="Quantity">QTY</th>
+            <th scope="col" data-toggle="tooltip" data-placement="top" title="Initiative">INI</th>
+            <th scope="col" data-toggle="tooltip" data-placement="top" title="Communication">COM</th>
+            <th scope="col" data-toggle="tooltip" data-placement="top" title="Professionalism">PRO</th>
+            <th scope="col" data-toggle="tooltip" data-placement="top" title="Integration">INT</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% filtered.forEach(function(row) { %>
+            <tr>
+              <td>
+                <%= row.date %>
+              </td>
+              <td>
+                <%= row.fellow %>
+              </td>
+              <td>
+                <%= row.client %>
+              </td>
+              <td>
+                <%= row.staff %>
+              </td>
+              <td>
+                <%= row.ratings[0] %>
+              </td>
+              <td>
+                <%= row.ratings[1] %>
+              </td>
+              <td>
+                <%= row.ratings[2] %>
+              </td>
+              <td>
+                <%= row.ratings[3] %>
+              </td>
+              <td>
+                <%= row.ratings[4] %>
+              </td>
+              <td>
+                <%= row.ratings[5] %>
+              </td>
+            </tr>
+            <% }); %>
+        </tbody>
+      </table>
+      <% } else { %>
+        <div class="text-center">
+          <h2>Nothing to show</h2>
+        </div>
+        <% } %>
+  </div>
 
-  </ul>
 </body>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+  crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+  crossorigin="anonymous"></script>
 <script>
   window.history.replaceState(null, null, window.location.pathname);
+  $(document).ready(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  });
 </script>
 
 </html>

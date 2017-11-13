@@ -14,6 +14,8 @@ router.get('/', (req, res) => {
       const details = {
         userMail: decoded.UserInfo.email,
         userId: decoded.UserInfo.id,
+        fullName: decoded.UserInfo.name,
+        picture: decoded.UserInfo.picture,
         res,
       };
 

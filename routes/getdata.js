@@ -29,6 +29,10 @@ function authorize(credentials, response, callback) {
 
 function render(auth, details) {
   const sheets = google.sheets('v4');
+  const {
+    res, userMail, userId, fullName, picture,
+  } = details;
+
   sheets.spreadsheets.values.get(
     {
       auth,
@@ -38,23 +42,25 @@ function render(auth, details) {
     (err, response) => {
       if (err) {
         console.log(`The API returned an error: ${err}`);
-        return details.res.redirect('/login');
+        return res.redirect('/login');
       }
       const rows = response.values;
 
-      let filtered = rows.filter(row => row[12] === details.userMail && row[8] === details.userId);
+      let filtered = rows.filter(row => row[12] === userMail && row[8] === userId);
 
       filtered = filtered.map(row => ({
         date: row[0],
         staff: `${row[4]} ${row[5]}`,
         client: row[13],
         fellow: row[9],
-        ratings: row[18],
+        ratings: [row[18], row[19], row[20], row[21], row[22], row[23]],
       }));
 
-      return details.res.render('index', {
+      return res.render('index', {
         title: 'Fellow Status',
         filtered,
+        fullName,
+        picture,
       });
     },
   );
