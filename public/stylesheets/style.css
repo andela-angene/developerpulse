@@ -103,8 +103,8 @@ p.small {
   transition: 0.5s;
   color: #665851;
 }
-
-.login-box .login-btn {
+.login-btn:link,
+.login-btn:visited {
   margin-top: 0px;
   border: 0;
   border-radius: 2px;
@@ -117,16 +117,14 @@ p.small {
   background-color: #665851;
   cursor: pointer;
   outline: none;
+  text-decoration: none;
 }
 
-.login-box .login-btn:hover {
+.login-btn:hover,
+.login-btn:active {
   opacity: 0.7;
   transition: 0.5s;
-}
-
-.login-box .login-btn:hover {
-  opacity: 0.7;
-  transition: 0.5s;
+  text-decoration: none;
 }
 
 .selected {

@@ -61,6 +61,7 @@ function render(auth, details) {
         filtered,
         fullName,
         picture,
+        url: process.env.site_url,
       });
     },
   );
