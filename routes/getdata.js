@@ -1,8 +1,6 @@
 const google = require('googleapis');
 const googleAuth = require('google-auth-library');
 
-// const redirectUris = 'urn:ietf:wg:oauth:2.0:oob';
-
 const authDetails = {
   installed: {
     client_id: process.env.client_id,
